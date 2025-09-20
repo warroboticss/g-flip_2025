@@ -1,0 +1,13 @@
+
+
+
+Left Trigger: Intake
+Right Trigger: Shoot (cache)
+
+Left Bumper: Speaker
+Right Bumper: Slow
+
+A: amp
+B: limelight
+X: outtake
+Y: zero gyro
