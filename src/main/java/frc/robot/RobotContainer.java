@@ -1,8 +1,7 @@
 package frc.robot;
 
-import frc.robot.commands.DefaultDriveCommand;
 import frc.robot.commands.LimelightCenter;
-import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.SwerveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -22,22 +21,20 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class RobotContainer {
 
-  private final DriveSubsystem driveSubsystem = new DriveSubsystem();
+  private final SwerveSubsystem driveSubsystem = new SwerveSubsystem();
 
   //private final Joystick controller = new Joystick(0);
   private final CommandXboxController controller = new CommandXboxController(0);
-  private final Joystick revControl = new Joystick(1);
-  private final
-  NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight-a");
-  NetworkTableEntry tx = table.getEntry("tx");
-  NetworkTableEntry ty = table.getEntry("ty");
-  NetworkTableEntry ta = table.getEntry("ta");
+  // private final NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight-a");
+  // NetworkTableEntry tx = table.getEntry("tx");
+  // NetworkTableEntry ty = table.getEntry("ty");
+  // NetworkTableEntry ta = table.getEntry("ta");
 
   public RobotContainer() {
 
 
     configureBindings();
-    driveSubsystem.setDefaultCommand(new DefaultDriveCommand(driveSubsystem, () -> controller.getLeftX() , () -> controller.getLeftY(), () -> controller.getRightX()));
+    driveSubsystem.setDefaultCommand(driveSubsystem.driveCommand(() -> controller.getLeftX(), () -> controller.getLeftY(), () -> controller.getRightX()));
   }
 
  
@@ -52,7 +49,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand()
   {
-    return driveSubsystem.getAutonomousCommand("Just Shoot");
+    return driveSubsystem.getAutonomousCommand("n/a");
     //return new ShootSpeakerCommand(shooterSubsystem);
   }
 }

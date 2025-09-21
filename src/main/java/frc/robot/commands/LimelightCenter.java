@@ -5,14 +5,14 @@ import java.util.function.Supplier;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.SwerveSubsystem;
 import swervelib.SwerveController;
 
 public class LimelightCenter extends Command{
-    private DriveSubsystem m_swerve;
+    private SwerveSubsystem m_swerve;
     private Supplier<Double> x, y, tx, ta;
 
-    public LimelightCenter(DriveSubsystem swerve, Supplier<Double> x, Supplier<Double> y, Supplier<Double> tx, Supplier<Double> ta){
+    public LimelightCenter(SwerveSubsystem swerve, Supplier<Double> x, Supplier<Double> y, Supplier<Double> tx, Supplier<Double> ta){
         this.m_swerve = swerve;
         this.x = x;
         this.y = y;
