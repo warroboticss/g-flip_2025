@@ -1,9 +1,11 @@
 package frc.robot;
 
-import frc.robot.commands.LimelightCenter;
+//import frc.robot.commands.LimelightCenter;
 import frc.robot.subsystems.SwerveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.commands.RainbowLightCmd;
+import frc.robot.subsystems.LightSubsystem;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 import com.pathplanner.lib.auto.NamedCommands;
@@ -22,6 +24,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class RobotContainer {
 
   private final SwerveSubsystem driveSubsystem = new SwerveSubsystem();
+  private final LightSubsystem lightSubsystem = new LightSubsystem();
 
   //private final Joystick controller = new Joystick(0);
   private final CommandXboxController controller = new CommandXboxController(0);
@@ -34,6 +37,7 @@ public class RobotContainer {
 
 
     configureBindings();
+    lightSubsystem.setDefaultCommand(new RainbowLightCmd(lightSubsystem));
     driveSubsystem.setDefaultCommand(driveSubsystem.driveCommand(() -> controller.getLeftX(), () -> controller.getLeftY(), () -> controller.getRightX()));
   }
 
