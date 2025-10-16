@@ -1,11 +1,13 @@
-	{
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "postCreateCommand": "cd /opt && wget 'https://github.com/wpilibsuite/vscode-wpilib/releases/download/v2025.3.1/vscode-wpilib-2024.3.1.vsix'",
-    "features": {
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": ["/opt/vscode-wpilib-2025.3.1.vsix","vscjava.vscode-java-pack","vscjava.vscode-gradle"]
-      }
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "cd /opt && wget -O vscode-wpilib.vsix 'https://github.com/wpilibsuite/vscode-wpilib/releases/download/v2024.3.1/vscode-wpilib-2024.3.1.vsix' && code --install-extension /opt/vscode-wpilib.vsix",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle"
+      ]
     }
   }
+}
